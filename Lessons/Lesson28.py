@@ -126,7 +126,6 @@ class Computer:
         def system(self):
             return 'Windows 10'
 
-
     class CPU:
         def make(self):
             return 'Intel'

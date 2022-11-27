@@ -57,6 +57,7 @@
 
 
 class Human:
+
     name = 'name'
     birthday = '00.00.0000'
     phone = '00-00-00'
