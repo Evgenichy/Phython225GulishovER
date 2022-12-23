@@ -1,6 +1,40 @@
 1.	Выведите перечень сумм заказов продавца Rifkin.
 
+SELECT o.amt
+FROM Orders o, Salespeople s
+WHERE o.snum=s.snum AND s.sname = 'Rifkin'
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+SELECT o.amt
+FROM Orders o, Salespeople s
+WHERE o.snum=s.snum AND s.sname = 'Rifkin';
+
+SELECT amt
+FROM Orders
+WHERE snum =
+    (SELECT snum
+    FROM Salespeople
+    WHERE sname = 'Rifkin')
+
 2.	Определите  комиссионные всех продавцов, обслуживающих заказчиков в Риме
+
+SELECT s.com
+FROM Customers c, Salespeople s
+WHERE c.snum=s.snum AND c.city LIKE 'Rome'
+
+++++++++++++++++++++++++++++++++++++++++
+SELECT s.com
+FROM Customers c, Salespeople s
+WHERE c.snum=s.snum AND c.city LIKE 'Rome';
+
+SELECT com
+FROM Salespeople
+WHERE snum IN
+    (SELECT snum
+    FROM Customers
+    WHERE city LIKE 'Rome'
+    )
 
 3.	Напишите запрос, который определит заказчиков имеющих рейтинг ниже среднего.
 

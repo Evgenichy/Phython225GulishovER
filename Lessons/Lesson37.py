@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
-import re
 import requests
+import re
+import csv
 
 # f = open('index.html').read()
 # soup = BeautifulSoup(f, 'html.parser')
@@ -76,6 +77,17 @@ def get_html(url):
     return r.text
 
 
+def refined(s):
+    res = re.sub(r'\D+', '', s)
+    return res
+
+
+def write_csv(data):
+    with open('plugins.csv', 'a') as f:
+        writer = csv.writer(f, lineterminator='\r', delimiter=';')
+        writer.writerow((data['name'], data['url'], data['rating']))
+
+
 def get_data(html):
     soup = BeautifulSoup(html, 'lxml')
     p1 = soup.find_all('section', {'class': 'plugin-section'})[1]
@@ -83,9 +95,14 @@ def get_data(html):
 
     for plugin in plugins:
         name = plugin.find('h3').text
+        # url = plugin.find('h3').find('a')
         # url = plugin.find('h3').find('a')['href']
-        url = plugin.find('h3').find('a')['href']
-        print(url)
+        url = plugin.find('h3').find('a').get('href')
+        rating = plugin.find('span', {'class': 'rating-count'}).find('a').text
+        r =refined(rating)
+
+        data = {'name': name, 'url': url, 'rating': r}
+        write_csv(data)
 
 
 def main():
@@ -96,4 +113,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-    #2:25
+    # 2:25

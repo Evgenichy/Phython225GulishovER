@@ -1,8 +1,28 @@
 1.	Выведите список студентов физико-математического факультета.
 
+SELECT s.FIO
+FROM Student s
+WHERE s."Group" IN
+    (SELECT g."Group"
+    FROM G g
+    WHERE g.Kafedra IN
+        (SELECT k.Kafedra
+        FROM Kafedra k
+        WHERE k.Decanat = 'Физико-математический'
+        )
+    )
+
 2.	Студенты какой кафедры и факультета сдавали социологию.
 
+
+
 3.	Выведите кафедры, список студентов, список студентов в алфавитном порядке.
+
+SELECT s.FIO, (SELECT g.Kafedra
+                FROM G g
+                WHERE s."Group"=g."Group")
+FROM Student s
+ORDER BY s.FIO
 
 4.	Вывести номера зачеток только студентов физико-технического факультета.
 
