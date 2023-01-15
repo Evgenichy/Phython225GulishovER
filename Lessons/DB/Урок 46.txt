@@ -1,0 +1,66 @@
+работа с db_7
+
+1.
+
+2. Напишите запрос, который использовал бы подзапрос для получения всех заказов для заказчика с именем Cisneros.
+
+SELECT *
+FROM Orders o
+WHERE EXISTS
+    (SELECT c.cnum
+    FROM Customers c
+    WHERE c.cnum=o.cnum AND c.cname='Cisneros')
+
+
+3. Напишите запрос для извлечения всех продавцов, имеющих заказчиков с оценкой 300 (через операторы подзапросов).
+
+SELECT s.sname
+FROM Salespeople s
+WHERE EXISTS
+    (SELECT c.rating
+    FROM Customers c
+    WHERE c.snum=s.snum AND c.rating=300) 
+
+
+4. Напишите запрос, который выберет всех продавцов (по их имени и номеру), имеющих в своих городах заказчиков, которых они не обслуживают.
+
+5. Вывести всех продавцов и заказчиков, размещенных в Лондоне и вывести их как единое целое.
+
+SELECT snum, sname
+FROM Salespeople
+WHERE city = 'London'
+
+UNION
+
+SELECT cnum, cname
+FROM Customers
+WHERE city='London';
+
+
+6. Вывести номера и города продавцов.
+
+7. Создайте объединение из двух запросов, которое показало бы имена, города и оценки всех заказчиков. Те из них, которые имеют поле  rating=200 и более, должны, кроме того, иметь слова - "Высокий Рейтинг", а остальные должны иметь слова "Низкий Рейтинг".
+
+SELECT cname, city, rating, 'Высокий рейтинг' AS 'Рейтинг'
+FROM Customers
+WHERE rating >= 200
+
+UNION
+
+SELECT cname, city, rating, 'Низкий рейтинг'
+FROM Customers
+WHERE rating < 200;
+
+
+8. Напишите запрос, который выведет пары имен заказчиков и клиентов.
+
+SELECT s.sname, c.cname
+FROM Salespeople s INNER JOIN Customers c
+ON s.snum=c.snum
+
+9. Напишите запрос, который выведет  список всех клиентов и их заказы, отсортировав имена клиентов по алфавиту.
+
+SELECT c.cname, o.onum
+FROM Customers c LEFT JOIN Orders o
+ON c.cnum=o.cnum
+ORDER BY c.cname;
