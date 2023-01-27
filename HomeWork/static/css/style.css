@@ -1,0 +1,23 @@
+body{
+    background: rgb(182, 220, 231);
+    margin: 0;
+    padding: 0;
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background: rgb(0, 179, 255);
+    padding: 20px;
+    margin-top: 0;
+}
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
