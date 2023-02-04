@@ -7,5 +7,17 @@
 {% block content %}
 {{ super() }}
 Magic Picture - 'Контур'
+<hr>
+<h2>Список товаров</h2>
+<ul>
+    {% for p in posts %}
+    <li>
+        <p class="title">
+            <a href="{{ url_for('show_post', alias=p.url)}}">{{p.title}}</a>
+        </p>
+        <div class="annonce">{{p.text[:10]}}...</div>
+    </li>
+    {% endfor %}
+
 {% endblock %}
 

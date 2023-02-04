@@ -65,7 +65,7 @@ def add_post():
         else:
             flash('Ошибка добавления статьи', category='error')
 
-    return render_template('add_post.html', menu=dbase.get_menu(), title='Добавлении статьи')
+    return render_template('add_post.html', menu=dbase.get_menu(), title='Добавление статьи')
 
 
 

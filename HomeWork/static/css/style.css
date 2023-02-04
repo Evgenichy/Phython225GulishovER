@@ -2,6 +2,7 @@ body{
     background: rgb(182, 220, 231);
     margin: 0;
     padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .menu{
     display: flex;
@@ -31,4 +32,43 @@ body{
 .flash.error{
     border: 1px solid #FF4343;
     background: #FF9C9C;
+}
+
+.menu a{
+    font-weight: bold;
+    color: white;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+p>a{
+    text-decoration: none;
+    color: rgb(94, 94, 94);
+}
+
+li>p, li div{
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px 20px;
+}
+
+p.title{
+    margin: 0;
+    font-weight: bold;
+    background-color: rgb(107, 232, 246);
+}
+
+p.title a{
+    display: block;
+}
+
+p.title:hover{
+    background: rgb(0, 179, 255);
+}
+.annonce{
+    margin-top: -1px;
+    background: #FFF;
+    margin-bottom: 40px;
 }
