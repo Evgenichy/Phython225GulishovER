@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<h2>Список товаров</h2>
+<ul class="showcase">
+    {% for gs in goods %}
+    <li>
+        <p class="title">
+            <a href="">{{gs.title}}</a>
+        </p>
+        <div class="announce">{{gs.text}}
+        <p class="button">
+            <input type="submit" value="Купить">
+        </p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

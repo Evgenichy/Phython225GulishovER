@@ -48,7 +48,7 @@ def get_db():
 def index():
     db = get_db()
     dbase = FDataBase(db)
-    print(url_for('index'))
+
     return render_template('index.html', title='Главная', menu=dbase.get_menu(), posts=dbase.get_posts_anonce())
 
 
@@ -56,7 +56,6 @@ def index():
 def shop():
     db = get_db()
     dbase = FDataBase(db)
-    print(url_for('shop'))
 
     return render_template('shop.html', title='Магазин', menu=dbase.get_menu())
 
@@ -65,7 +64,6 @@ def shop():
 def delivery():
     db = get_db()
     dbase = FDataBase(db)
-    print(url_for('delivery'))
 
     return render_template('delivery.html', title='Доставка', menu=dbase.get_menu())
 
@@ -103,7 +101,6 @@ def show_post(alias):
 def about():
     db = get_db()
     dbase = FDataBase(db)
-    print(url_for('about'))
 
     return render_template('about.html', title='О нас', menu=dbase.get_menu())
 
