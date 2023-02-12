@@ -9,6 +9,7 @@
 <body>
 <div class="container">
     <h1>Home page</h1>
+    <p><a href="{% url 'about' %}">О нас</a></p>
     <form action="{% url 'password' %}">
        <p><select name="length">
             {% for i in lst %}

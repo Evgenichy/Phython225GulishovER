@@ -5,6 +5,10 @@ import random
 # Create your views here.
 
 
+def about(request):
+    return render(request, 'generator/about.html')
+
+
 def home(request):
     lst = list(range(6,15))
     return render(request, 'generator/home.html', {'lst': lst})
