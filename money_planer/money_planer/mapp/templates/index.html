@@ -1,0 +1,27 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Планировщик бюджета</h1>
+
+<div class="img">
+    <img src="{% static 'mapp/budget.jpg' %}" alt="">
+</div>
+
+<h2>Типы семейного бюджета</h2>
+
+<div class="block">
+    {% for planer in planers %}
+    <div class="element">
+        <div>
+            <img src="{{ planer.image.url }}" alt="">
+        </div>
+        <div class="text">
+            <h2><a href="{{ planer.url }}" target="_blank">{{ planer.title }}</a></h2>
+            <p>{{ planer.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
