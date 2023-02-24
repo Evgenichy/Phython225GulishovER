@@ -5,7 +5,7 @@ body{
     font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
-    background: #CCCCFF;
+    background: #FFF;
 }
 
 .wrap{
@@ -13,6 +13,35 @@ body{
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
+}
+
+.menu{
+    background: #7CF1B9;
+    /* box-shadow: 0 2px 12px 2px #7CF1B9; */
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.menu .logo{
+    margin-right: 30%;
+    color: white
+}
+a{
+    text-decoration: none;
+}
+
+.menu a{
+    color: #FFF;
 }
 
 .block{
@@ -25,9 +54,11 @@ body{
 .element, .count{
     background-color: lightyellow;
     /* flex-basis: 360px; */
-    border: 6px solid #FFF;
+    border: 1px solid #000000;
     margin: 20px 0;
 }
+
+
 
 .text{
     width: 360px;
@@ -61,7 +92,7 @@ body{
 }
 
 .top{
-    background: #663366;
+    background: #ffffff;
     margin: 0;
 }
 

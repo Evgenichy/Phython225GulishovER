@@ -4,4 +4,4 @@ from .models import Mapp
 
 def index(requests):
     planers = Mapp.objects.all()
-    return render(requests, 'index.html', {'planers': planers})
+    return render(requests, 'mapp/index.html', {'planers': planers})
