@@ -1,0 +1,35 @@
+{% extends 'goods/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Печать на холсте</h1>
+
+<div class="form_item">
+    <div class="images">
+        <div class="img_big">
+            <img src="{% static 'product/img_big.png' %}" alt="">
+        </div>
+    </div>
+    <div class="form_order">
+        <h2>Печать на холсте</h2>
+        <select name="size" id="">
+            {% for size in sizes %}
+                <option value="{{ size }}">{{ size.picture_size }}</option>
+            {% endfor %}
+        </select>
+        <select name="style" id="">
+            {% for size in sizes %}
+                <option value="{{ size }}">{{ size.picture_size }}</option>
+            {% endfor %}
+        </select>
+        <select name="price" id="">
+            {% for size in sizes %}
+                <option value="{{ size }}">{{ size.picture_size }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+
+{% endblock %}

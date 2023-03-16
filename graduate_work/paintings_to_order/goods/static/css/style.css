@@ -1,0 +1,142 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle closest-corner, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), #363A4E;
+}
+
+.content{
+    /* width: 90%; */
+}
+
+/*=======================
+===      MENU         ===                 
+=======================*/
+
+.header_nav{
+    background: rgba(217, 217, 217, 0.13);
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+
+.header_menu{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    gap: 6.5rem;
+}
+
+.header_menu li, a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+}
+
+
+/*=======================
+===      Главная      ===                 
+=======================*/
+
+
+.index{
+    display: flex;
+}
+
+.index h1{
+    font-size: 64px;
+    color: #fff;
+}
+
+.index p{
+    font-size: 36px;
+    color: #fff;
+}
+
+button{
+    background: #4685FF;
+    border: none;
+    border-radius: 45px;
+    padding: 20px 45px;
+    cursor: pointer;
+}
+
+button::before{
+    content: '';
+    position: absolute;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.img {
+    float: left;
+}
+
+
+/*=======================
+===      Товары       ===                 
+=======================*/
+
+.goods_page{
+    
+    
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+}
+
+.cards p{
+    font-weight: 100;
+    font-size: 32px;
+    color: #fff;
+    padding-left: 45px;
+    opacity: .4;
+}
+
+.card_item{
+    margin: 40px;
+    width: 380px;
+    height: 570px;
+    border: 5px solid #c3c3c3;
+}
+
+.card_name{
+    text-align: center;
+    font-weight: 600;
+    font-size: 32px;
+    color: #fff;
+}
+
+.image_g{
+    align-items: center;
+}
+
+.description_item{
+    font-weight: 100;
+    font-size: 32px;
+    color: #fff;
+    padding-left: 45px;
+}
+
+.btn_g{
+    
+}
+
+/*=======================
+===     Оформление    ===                 
+=======================*/
+
+.form_item{
+    display: flex;
+}
+
+.images{
+    
+}
+
+.img_min{
+    
+}

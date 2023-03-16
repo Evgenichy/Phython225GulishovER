@@ -1,0 +1,19 @@
+{% extends 'goods/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="index">
+    <div class="greeting">
+        <h1>Печать на холсте</h1><br>
+        <p>Изготовление картин на заказ</p>
+        <p>Оставьте заявку и мы позвоним Вам сами, чтобы ответить на все ваши вопросы</p><br>
+        
+            <button class="feedback_btn"><a href="#">Обратная связь</a></button>
+        
+    </div>
+
+    <div class="img">
+        <img src="{% static 'index/grt.png' %}" alt="">   
+    </div>
+</div>
+{% endblock %}
