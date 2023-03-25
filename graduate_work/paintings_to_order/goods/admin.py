@@ -1,7 +1,13 @@
 from django.contrib import admin
-from .models import Cards, Size, Price
+from .models import Cards, Size, Price, Order
 
-admin.site.register(Cards)
+
+class CardsAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('card_name',)}
+
+
+admin.site.register(Cards, CardsAdmin)
 admin.site.register(Size)
 admin.site.register(Price)
+admin.site.register(Order)
 

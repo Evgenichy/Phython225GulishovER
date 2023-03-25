@@ -3,25 +3,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <link rel="stylesheet" href=""> 
-
-
-
     <title>Magic pictures</title>
 </head>
 <body>
     <div class="content">
+        {% include 'goods/navbar.html' %}
 
-    {% include 'goods/navbar.html' %}
-
-
-
-    {% block content %}
-
-    {% endblock %}
-
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>

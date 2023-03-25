@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Cards, Size, Price
+from .models import Cards
+from .forms import Order, OrderForm
 
 
 def index(request):
@@ -11,14 +12,16 @@ def goods(request):
     return render(request, 'goods/goods.html', {'cards': cards})
 
 
-def product(request):
-    return render(request, 'goods/product.html')
+def product(request, pk):
+    card_name = Cards.objects.get(id=pk)
+    order_form = OrderForm()
 
+    if request.method == 'POST':
+        form = OrderForm(request.POST, request.FILE)
+        if form.is_valid():
+            form.save()
 
-def select_size(request):
-    sizes = Size.objects.all()
-    context = {'size': sizes}
-    return render(request, 'goods/product.html', context)
+    return render(request, 'goods/product.html', {'card_name': card_name, 'order_form': order_form})
 
 
 # def feedback(request):

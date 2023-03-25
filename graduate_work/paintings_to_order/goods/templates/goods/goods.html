@@ -3,19 +3,21 @@
 <h1>Товары</h1>
 <div class="goods_page">
     <div class="cards">
-        {% for card in cards%}
+        {% for card in cards %}
             <!-- карточка товара -->
             <div class="card_item">
                 <!-- название товара -->
                 <h2 class="card_name">{{ card.card_name }}</h2>
                 <!-- фото тоовара -->
                 <div class="image_g">
-                    <img src="{{ card.card_photo.url }}" alt="">
+
+                        <img src="{{ card.card_photo.url }}" alt="">
+
                 </div>
                 <!-- описание -->
                 <p>Описание:</p><br>
                 <div class="description_item">{{ card.description }}</div><br>
-                <button class="btn_g"><a href="{% url 'product' %}">Подробнее</a></button>
+                <button class="btn_g"><a href="{% url 'product' card.id %}">Подробнее</a></button>
             </div>
         {% endfor %}
     </div>

@@ -2,34 +2,28 @@
 {% load static %}
 
 {% block content %}
-
-<h1>Печать на холсте</h1>
-
+<h1>{{ card_name.card_name }}</h1>
 <div class="form_item">
     <div class="images">
         <div class="img_big">
-            <img src="{% static 'product/img_big.png' %}" alt="">
+            <img src="{{ card_name.card_photo.url }}" alt="">
         </div>
     </div>
     <div class="form_order">
-        <h2>Печать на холсте</h2>
+        <h2>{{ card_name.card_name }}</h2>
         <select name="size" id="">
-            {% for size in sizes %}
-                <option value="{{ size }}">{{ size.picture_size }}</option>
-            {% endfor %}
+            <option value="{{ size }}">{{ size.picture_size }}</option>
         </select>
-        <select name="style" id="">
-            {% for size in sizes %}
-                <option value="{{ size }}">{{ size.picture_size }}</option>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for field in order_form %}
+                <label for="">{{ field.label }}</label>
+                {{ field }}
             {% endfor %}
-        </select>
-        <select name="price" id="">
-            {% for size in sizes %}
-                <option value="{{ size }}">{{ size.picture_size }}</option>
-            {% endfor %}
-        </select>
+
+            <button type="submit">Отправить</button>
+        </form>
     </div>
 </div>
-
-
 {% endblock %}
