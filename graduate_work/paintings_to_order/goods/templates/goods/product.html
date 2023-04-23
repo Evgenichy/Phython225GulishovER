@@ -1,29 +1,26 @@
-{% extends 'goods/base.html' %}
+ {% extends 'goods/base.html' %}
 {% load static %}
 
 {% block content %}
-<h1>{{ card_name.card_name }}</h1>
-<div class="form_item">
-    <div class="images">
-        <div class="img_big">
-            <img src="{{ card_name.card_photo.url }}" alt="">
+<div class="content">
+    <h1>{{ card_name.card_name }}</h1>
+    <div class="form_item">
+        <div class="images">
+            <div class="img_big">
+                <img src="{{ card_name.card_photo.url }}" alt="">
+            </div>
         </div>
-    </div>
-    <div class="form_order">
-        <h2>{{ card_name.card_name }}</h2>
-        <select name="size" id="">
-            <option value="{{ size }}">{{ size.picture_size }}</option>
-        </select>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+        <div class="form_order">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
 
-            {% for field in order_form %}
-                <label for="">{{ field.label }}</label>
-                {{ field }}
-            {% endfor %}
-
-            <button type="submit">Отправить</button>
-        </form>
+                {% for field in order_form %}
+                    <label for="">{{ field.label }}</label>
+                    {{ field }}
+                {% endfor %}
+                <button class='fm_btn' type="submit">Отправить</button>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Cards(models.Model):
@@ -11,16 +10,11 @@ class Cards(models.Model):
     is_published = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'{self.card_name}'
+        return self.card_name
 
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
-
-
-class Basket(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    complete = models.BooleanField(default=False)
 
 
 class Size(models.Model):
@@ -29,20 +23,23 @@ class Size(models.Model):
     def __str__(self):
         return self.picture_size
 
-
-class Price(models.Model):
-    picture_price = models.ForeignKey(Size, on_delete=models.CASCADE)
-    list_price = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.list_price
+    class Meta:
+        verbose_name = 'Размер'
+        verbose_name_plural = 'Размеры'
 
 
 class Order(models.Model):
-    order_fio = models.CharField(max_length=200)
-    order_phone = models.CharField(max_length=12)
-    order_email = models.CharField(max_length=200)
-    order_photo = models.ImageField(null=True, blank=True)
+    size = models.ManyToManyField(Size, blank=True, verbose_name='Размер')
+    order_fio = models.CharField(max_length=200, verbose_name='Имя')
+    order_phone = models.CharField(max_length=12, verbose_name='Телефон')
+    order_email = models.CharField(max_length=200, verbose_name='Email')
+    order_photo = models.ImageField(null=True, blank=True, verbose_name='Фотография для картины')
 
+    def __str__(self):
+        return self.order_email
+
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
 
 

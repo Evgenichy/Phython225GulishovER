@@ -3,6 +3,23 @@
 
 {% block content %}
 
+<div class="content">
+<h3 align="center">Если есть вопросы, заполните форму и мы Вам обязательно перезвоним!</h3>
+        <div class="feedback">
+            <h1>Форма обратной связи</h1><br>
 
+
+            <form class='feedback_form' method="post">
+                {% csrf_token %}
+
+                {% for field in feedback_form %}
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                {% endfor %}
+
+                <button class='fm_btn' type="submit">Отправить</button>
+            </form>
+        </div>
+</div>
 
 {% endblock %}

@@ -1,10 +1,23 @@
 from django.shortcuts import render, redirect
 from .models import Cards
-from .forms import Order, OrderForm
+from .forms import OrderForm, FeedbackForm, ContactForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 
 def index(request):
     return render(request, 'goods/index.html')
+
+
+def feedback(request):
+    feedback_form = FeedbackForm()
+
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    return render(request, 'goods/form_order.html', {'feedback_form': feedback_form})
 
 
 def goods(request):
@@ -17,25 +30,38 @@ def product(request, pk):
     order_form = OrderForm()
 
     if request.method == 'POST':
-        form = OrderForm(request.POST, request.FILE)
+        form = OrderForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
 
     return render(request, 'goods/product.html', {'card_name': card_name, 'order_form': order_form})
 
 
-# def feedback(request):
-#     return render(request, 'good/feedback.html')
+def contacts(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = "Пробное сообщение"
+            body = {
+                'first_name': form.cleaned_data['first_name'],
+                'last_name': form.cleaned_data['last_name'],
+                'email': form.cleaned_data['email_address'],
+                'message': form.cleaned_data['message'],
+            }
+            message = "\n".join(body.values())
+            try:
+                send_mail(subject, message,
+                          'admin@example.com',
+                          ['admin@example.com'])
+            except BadHeaderError:
+                return HttpResponse('Найден некорректный заголовок')
+            return redirect('contacts')
 
-# def basket(request):
-#     basket = Basket.objects.filter(user=request.user).first()
-#
-#     if basket == None:
-#         basket = Basket.objects.create(user=request.user)
-#
-#     basket.products.add(product)
-#
-#     return redirect('product_detail', product_pk=product.pk)
+    form = ContactForm()
+    return render(request, 'goods/contacts.html', {'form': form})
 
+
+def about_order(request):
+    return render(request, 'goods/about_order.html')
 
 

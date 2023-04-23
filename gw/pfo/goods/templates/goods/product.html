@@ -1,0 +1,49 @@
+{% extends 'goods/base.html' %}
+{% block content %}
+<h1>holst</h1>
+
+<div class="container">
+    <div class="form_items">
+        <div class="img_form">
+            <img src="{{ card.featured_image.url }}" alt="">
+        </div>
+
+        <div class="form_order">
+            <h2>{{ product.title }}</h2>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% for field in order_form %}
+                    <label for="">{{ field.label }}</label>
+                    {{ field }}
+                {% endfor %}
+
+                <button class='fm_btn' type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="comments">
+    <h3>Отзывы</h3>
+    <form class="form" action="{% url 'product' product.id %}" method="POST">
+        {% csrf_token %}
+
+        {% for field in coment %}
+        <label for="">{{ field.label }}</label>
+        {{ field }}
+        {% endfor %}
+        <input class="btn" type="submit" value="Оставить отзыв" />
+    </form>
+</div>
+
+    <div class="commentList">
+        {% for com_list in product.coment_set.all %}
+        <div class="view_coment">
+            <h4>{{ com_list.name }}</h4>
+            <p>{{ com.list.text_com }}</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cards, Size, Price, Order
+from .models import Cards, Size, Order
 
 
 class CardsAdmin(admin.ModelAdmin):
@@ -8,6 +8,5 @@ class CardsAdmin(admin.ModelAdmin):
 
 admin.site.register(Cards, CardsAdmin)
 admin.site.register(Size)
-admin.site.register(Price)
 admin.site.register(Order)
 

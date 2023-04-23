@@ -1,0 +1,27 @@
+{% extends 'goods/base.html' %}
+{% block content %}
+<h1>Товары</h1>
+
+<div class="container">
+    <div class="cards">
+        {% for card in cards %}
+            <!-- карточка товара -->
+            <div class="card_item">
+                <!-- название товара -->
+                <h2 class="card_name">{{ card.title }}</h2>
+                <!-- фото тоовара -->
+                <div class="image_g">
+
+                        <img src="{{ card.featured_image.url }}" alt="">
+
+                </div>
+                <!-- описание -->
+                <p>Описание:</p><br>
+                <div class="description_item">{{ card.description }}</div><br>
+                <button class="btn_g"><a href="{% url 'product' card.id %}">Подробнее</a></button>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

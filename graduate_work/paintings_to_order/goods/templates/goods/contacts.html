@@ -1,0 +1,46 @@
+{% extends 'goods/base.html' %}
+
+{% block content %}
+<div class="coordinates">
+    <div class="container">
+        <h2 align="center">наши контакты</h2>
+        <div class="coordinates-items" align="center">
+            <div class="contacts">
+                <h3><span>позвоните или отправьте сообщение <a href="tel:+79028180797">+7 (922) 056-76-67</a></span></h3>
+                <div class="contacts-items">
+                    <div class="contacts-item">
+                        <p><br>
+                    </div>
+                    <div class="contacts-item">
+                        <p>WhatsApp, Viber, Telegram<br>
+                        <p><a href="https://wa.me/79220567667">+7 (922) 056-76-67</a></p>
+                    </div>
+                    <div class="contacts-item">
+                        <p>г. Ноябрьск, ул Весенняя 8</p>
+                    </div>
+                    <div class="contacts-item">
+                        <p>Пн-пт: 9:00-18:00,<br>
+                        Сб - вс: выходной</p>
+                    </div>
+                </div>
+
+                <h3>Мы в социальных сетях -><a href="https://vk.com/picture_nsk89">VK</a></h3>
+
+                <h2>Связь с нами</h2>
+                <form method="post" action=".">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <button class="btn_g">Отправить</button>
+                </form>
+                
+
+                <div class="soc">
+                    <a href="https://vk.com/picture_nsk89" target="_blank"><div class="vk"></div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,17 +1,12 @@
 {% load static %}
 <header class="header">
     <div class="container">
-        <a href="" class="header_logo">
-            <img src="{% static 'images/logo.svg' %}" alt="MagPic">
-        </a>
         <nav class="header_nav">
             <ul class="header_menu">
                 <li class="header_menuItem"><a href="{% url 'index' %}">главная</a></li>
                 <li class="header_menuItem"><a href="{% url 'goods' %}">товары</a></li>
-                <li class="header_menuItem"><a href="#">о нас</a></li>
-                <li class="header_menuItem"><a href="#">контакты</a></li>
-                <li class="header_menuItem"><a href="#">как заказать</a></li>
-
+                <li class="header_menuItem"><a href="{% url 'contacts' %}">контакты</a></li>
+                <li class="header_menuItem"><a href="{% url 'about_order' %}">как заказать</a></li>
             </ul>
         </nav>
     </div>

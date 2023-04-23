@@ -6,9 +6,18 @@ body{
 }
 
 .content{
-    /* width: 90%; */
+    max-width: 95%;
+    margin: 0 auto;
 }
 
+h1{
+    color: #FFF;
+    text-align: center;
+}
+
+h2, h3, a, p{
+    color: #FFF;
+}
 /*=======================
 ===      MENU         ===                 
 =======================*/
@@ -77,15 +86,14 @@ button::before{
 ===      Товары       ===                 
 =======================*/
 
-.goods_page{
-    
-    
+.goods_page h1{
+    color: #FFF;
 }
 
 .cards{
     display: flex;
     flex-wrap: wrap;
-    margin: 50px;
+    align-items: stretch;
 }
 
 .cards p{
@@ -99,7 +107,6 @@ button::before{
 .card_item{
     margin: 40px;
     width: 380px;
-    height: 570px;
     border: 5px solid #c3c3c3;
 }
 
@@ -111,7 +118,8 @@ button::before{
 }
 
 .image_g{
-    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .description_item{
@@ -122,21 +130,80 @@ button::before{
 }
 
 .btn_g{
-    
+    margin: 20px;
 }
 
 /*=======================
-===     Оформление    ===                 
+===       Форма       ===                 
 =======================*/
+
+.feedback{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback_form{
+    display: grid;
+    width: 500px;
+}
+
+form{
+    display: grid;
+}
+
+.form_order{
+    padding-left: 30px;
+}
+
+label{
+    color: #fff;
+    padding-top: 20px;
+
+}
+
+input{
+    background: transparent;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #FFF;
+    font-size: 24px;
+    color: #FFF;
+    
+}
+
+input::placeholder{
+    font-size: 24px;
+    color: grey;
+}
+
+input:focus::placeholder{
+    color: darkslategray;
+}
+
+input:focus{
+    outline: none;
+}
+
+
+#id_order_photo{
+    border-bottom: none;
+}
+
+.fm_btn{
+    margin: 40px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+}
+/* input{
+    border: solid #000000;
+    border-radius: 20px;
+    margin: 10px 20px 10px 0;
+    padding: 10px;
+} */
 
 .form_item{
     display: flex;
 }
 
-.images{
-    
-}
-
-.img_min{
-    
-}
